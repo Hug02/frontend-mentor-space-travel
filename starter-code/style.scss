@@ -131,6 +131,7 @@ body {
 
             &:hover::after {
                 transform: scale(1.4);
+                opacity: 1;
             }
         }
     }

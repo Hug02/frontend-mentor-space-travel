@@ -119,6 +119,7 @@ body main .explore-btn::after {
 }
 body main .explore-btn:hover::after {
   transform: scale(1.4);
+  opacity: 1;
 }
 
 @media screen and (min-width: 730px) {
