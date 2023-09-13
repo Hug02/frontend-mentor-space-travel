@@ -125,8 +125,8 @@ body main .explore-btn:hover::after {
 @media screen and (min-width: 730px) {
   body {
     background-image: url("./assets/home/background-home-desktop.jpg");
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr;
   }
   body header {
     align-items: center;
@@ -146,6 +146,7 @@ body main .explore-btn:hover::after {
     width: fit-content;
     padding: 1.8em 4.3em;
     order: 2;
+    backdrop-filter: blur(1rem);
   }
   body header nav ul {
     flex-direction: row;
@@ -162,23 +163,25 @@ body main .explore-btn:hover::after {
     width: 100%;
   }
   body main {
-    align-self: center;
-    flex-direction: row;
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 25rem) minmax(0, 25rem) 1fr;
+    place-items: center;
+    align-items: end;
+    padding-bottom: 20vh;
   }
   body main .hero {
-    flex-grow: 1;
+    grid-column: 2;
   }
   body main .hero h1 {
     align-items: flex-start;
     font-size: 1.8rem;
   }
   body main .hero h1 strong {
-    font-size: 3.7em;
+    font-size: clamp(5rem, 7vw + 1rem, 9rem);
   }
   body main .hero p {
     text-align: left;
-    font-size: 1.6rem;
+    font-size: 1.1rem;
   }
 }
 
