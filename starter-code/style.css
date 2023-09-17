@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+/*
+Utility fonction
+*/
+.main-container {
+  margin-top: 3rem;
+  padding: 0 10px;
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr;
+  place-items: center;
+  gap: var(--gap-main, 0);
+}
+
 body {
   background-image: url("./assets/home/background-home-mobile.jpg");
   background-repeat: no-repeat;
@@ -13,6 +25,8 @@ body {
   min-height: 100vh;
   color: white;
   font-family: "Barlow";
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 body header {
   display: flex;
@@ -60,16 +74,10 @@ body header nav ul li {
 body header nav ul li strong {
   margin-right: 0.5rem;
 }
-body main {
-  margin-top: 3rem;
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--gap-main, 5rem);
+body .main-container--home {
   padding-bottom: 2rem;
 }
-body main .hero h1 {
+body .main-container--home .hero h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,19 +88,19 @@ body main .hero h1 {
   font-size: 1em;
   letter-spacing: 4px;
 }
-body main .hero h1 strong {
+body .main-container--home .hero h1 strong {
   font-family: "Bellefair";
   color: hsl(0, 0%, 100%);
   font-size: 5em;
 }
-body main .hero p {
+body .main-container--home .hero p {
   max-width: 390px;
   text-align: center;
   font-size: 1em;
   margin: auto;
   line-height: 1.4em;
 }
-body main .explore-btn {
+body .main-container--home .explore-btn {
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Bellefair";
@@ -106,7 +114,7 @@ body main .explore-btn {
   align-content: center;
   position: relative;
 }
-body main .explore-btn::after {
+body .main-container--home .explore-btn::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -117,16 +125,19 @@ body main .explore-btn::after {
   opacity: 0;
   transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
 }
-body main .explore-btn:hover::after {
+body .main-container--home .explore-btn:hover::after {
   transform: scale(1.4);
   opacity: 1;
 }
 
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 540px) {
+  body {
+    background-image: url("./assets/home/background-home-tablet.jpg");
+  }
+}
+@media screen and (min-width: 890px) {
   body {
     background-image: url("./assets/home/background-home-desktop.jpg");
-    display: grid;
-    grid-template-rows: auto 1fr;
   }
   body header {
     align-items: center;
@@ -153,7 +164,7 @@ body main .explore-btn:hover::after {
     gap: 2.7em;
   }
   body header nav ul li {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   body header::after {
     content: "";
@@ -162,24 +173,25 @@ body main .explore-btn:hover::after {
     background-color: rgba(255, 255, 255, 0.3);
     width: 100%;
   }
-  body main {
-    display: grid;
+  body .main-container--home {
+    grid-template-rows: auto;
     grid-template-columns: 1fr minmax(0, 25rem) minmax(0, 25rem) 1fr;
+    --gap-main: 2rem;
     place-items: center;
     align-items: end;
     padding-bottom: 20vh;
   }
-  body main .hero {
+  body .main-container--home .hero {
     grid-column: 2;
   }
-  body main .hero h1 {
+  body .main-container--home .hero h1 {
     align-items: flex-start;
     font-size: 1.8rem;
   }
-  body main .hero h1 strong {
+  body .main-container--home .hero h1 strong {
     font-size: clamp(5rem, 7vw + 1rem, 9rem);
   }
-  body main .hero p {
+  body .main-container--home .hero p {
     text-align: left;
     font-size: 1.1rem;
   }

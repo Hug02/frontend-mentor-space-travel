@@ -10,6 +10,19 @@
     box-sizing: border-box;
 }
 
+/*
+Utility fonction
+*/
+
+.main-container {
+    margin-top: 3rem;
+    padding: 0 10px;
+    display: grid;
+    grid-template-rows: .5fr .5fr;
+    place-items: center;
+    gap: var(--gap-main, 0);
+}
+
 body {
     background-image: url("./assets/home/background-home-mobile.jpg");
     background-repeat: no-repeat;
@@ -18,6 +31,8 @@ body {
     min-height: 100vh;
     color: white;
     font-family: 'Barlow';
+    display: grid;
+    grid-template-rows: auto 1fr;
 
     header {
         display: flex;
@@ -69,13 +84,7 @@ body {
         }
     }
 
-    main {
-        margin-top: 3rem;
-        padding: 0 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--gap-main, 5rem);
+    .main-container--home {
         padding-bottom: 2rem;
         .hero {
             h1 {
@@ -137,12 +146,15 @@ body {
     }
 }
 
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 540px) {
+    body {
+        background-image: url("./assets/home/background-home-tablet.jpg");
+    }
+}
+
+@media screen and (min-width: 890px) {
     body {
         background-image: url("./assets/home/background-home-desktop.jpg");
-        display: grid;
-        grid-template-rows: auto 1fr;
-        
 
 
     header {
@@ -168,7 +180,7 @@ body {
                 flex-direction: row;
                 gap: 2.7em;
                 li {
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
                 }
             }
         }
@@ -181,9 +193,10 @@ body {
         }
     }
 
-        main {
-            display: grid;
+        .main-container--home {
+            grid-template-rows: auto;
             grid-template-columns: 1fr minmax(0, 25rem) minmax(0, 25rem) 1fr;
+            --gap-main: 2rem;
             place-items: center;
             align-items: end;
             padding-bottom: 20vh;
