@@ -325,21 +325,27 @@ body {
                 grid-row-end: 4;
                 grid-column: 2;
                 margin-top: 1.256rem;
-                display: none;
                 img {
                     max-width: 90%;
                 }
+                opacity: 0;
+                transform: translate(-150px, 75px) scale(.5);
+                transition: transform .3s ease-in, opacity .2s ease-in;
                 &.active {
-                    display: block;
+                    transform: translate(0, 0) scale(1);
+                    opacity: 1;
                 }
             }
 
             .stats-container {
                 grid-column: 3;
                 grid-row: 3;
-                display: none;
+                visibility: hidden;
+                opacity: 0;
+
                 &.active {
-                    display: block;
+                    visibility: visible;
+                    opacity: 1;
                 }
                 
 
