@@ -329,11 +329,13 @@ body {
                     max-width: 90%;
                 }
                 opacity: 0;
+                z-index: 0;
                 transform: translate(-150px, 75px) scale(.5);
                 transition: transform .3s ease-in, opacity .2s ease-in;
                 &.active {
                     transform: translate(0, 0) scale(1);
                     opacity: 1;
+                    z-index: 1;
                 }
             }
 
@@ -341,11 +343,9 @@ body {
                 grid-column: 3;
                 grid-row: 3;
                 visibility: hidden;
-                opacity: 0;
 
                 &.active {
                     visibility: visible;
-                    opacity: 1;
                 }
                 
 

@@ -296,6 +296,7 @@ body .main-container--home .explore-btn:hover::after {
     grid-column: 2;
     margin-top: 1.256rem;
     opacity: 0;
+    z-index: 0;
     transform: translate(-150px, 75px) scale(0.5);
     transition: transform 0.3s ease-in, opacity 0.2s ease-in;
   }
@@ -305,16 +306,15 @@ body .main-container--home .explore-btn:hover::after {
   .body--destination .main-container--destination .destination-img-wrapper.active {
     transform: translate(0, 0) scale(1);
     opacity: 1;
+    z-index: 1;
   }
   .body--destination .main-container--destination .stats-container {
     grid-column: 3;
     grid-row: 3;
     visibility: hidden;
-    opacity: 0;
   }
   .body--destination .main-container--destination .stats-container.active {
     visibility: visible;
-    opacity: 1;
   }
   .body--destination .main-container--destination .stats-container h1 {
     margin: 0.4em 0;
