@@ -242,7 +242,7 @@ body .main-container--home .explore-btn:hover::after {
     background-image: url("./assets/destination/background-destination-desktop.jpg");
   }
   .body--destination .main-container--destination {
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-columns: 1fr repeat(2, minmax(0, 30rem)) 1fr;
     align-items: start;
   }
@@ -261,28 +261,18 @@ body .main-container--home .explore-btn:hover::after {
     margin-right: 1.2em;
     color: hsla(0, 0%, 100%, 0.25);
   }
-  .body--destination .main-container--destination .moon-img-wrapper {
+  .body--destination .main-container--destination .nav-destinations {
     grid-row: 2;
-    grid-column: 2;
-    margin-top: 1.7rem;
-  }
-  .body--destination .main-container--destination .moon-img-wrapper img {
-    max-width: 90%;
-  }
-  .body--destination .main-container--destination .stats-container {
     grid-column: 3;
-    grid-row: 2;
-  }
-  .body--destination .main-container--destination .stats-container ul {
+    justify-self: start;
     display: flex;
     list-style: none;
   }
-  .body--destination .main-container--destination .stats-container ul li {
-    position: relative;
+  .body--destination .main-container--destination .nav-destinations li {
     margin-right: 1.75em;
-    padding: 1em 0;
   }
-  .body--destination .main-container--destination .stats-container ul li button {
+  .body--destination .main-container--destination .nav-destinations li button {
+    position: relative;
     font-size: 1.256rem;
     text-transform: uppercase;
     color: hsl(231, 77%, 90%);
@@ -291,8 +281,9 @@ body .main-container--home .explore-btn:hover::after {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    padding: 1em 0;
   }
-  .body--destination .main-container--destination .stats-container ul li.active::after {
+  .body--destination .main-container--destination .nav-destinations li button.active::after {
     content: "";
     width: 100%;
     height: 4px;
@@ -300,6 +291,27 @@ body .main-container--home .explore-btn:hover::after {
     position: absolute;
     left: 0;
     bottom: 0;
+  }
+  .body--destination .main-container--destination .destination-img-wrapper {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column: 2;
+    margin-top: 1.256rem;
+    display: none;
+  }
+  .body--destination .main-container--destination .destination-img-wrapper img {
+    max-width: 90%;
+  }
+  .body--destination .main-container--destination .destination-img-wrapper.active {
+    display: block;
+  }
+  .body--destination .main-container--destination .stats-container {
+    grid-column: 3;
+    grid-row: 3;
+    display: none;
+  }
+  .body--destination .main-container--destination .stats-container.active {
+    display: block;
   }
   .body--destination .main-container--destination .stats-container h1 {
     margin: 0.4em 0;

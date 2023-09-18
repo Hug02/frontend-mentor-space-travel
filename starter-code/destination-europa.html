@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.ico">
   <link rel="stylesheet" href="style.css">
+  <script src="./destinations.js" defer></script>
   <title>Frontend Mentor | Space tourism website</title>
 </head>
 <body class="body--destination">
@@ -30,16 +31,18 @@
 
   <main class="main-container main-container--destination">
     <h2 class="ff-cond"><strong>01</strong>Pick your destination</h2>
-    <div class="moon-img-wrapper">
+    <ul class="nav-destinations">
+      <li class="ff-cond"><button id="moon-btn" class="active">Moon</button></li>
+      <li class="ff-cond"><button id="mars-btn">Mars</button></li>
+      <li class="ff-cond active"><button id="europa-btn">Europa</button></li>
+      <li class="ff-cond"><button id="titan-btn">Titan</button></li>
+    </ul>
+
+    <!-- Europa -->
+    <div id="europa-img" class="destination-img-wrapper">
       <img src="./assets/destination/image-europa.png" alt="Europa">
     </div>
-    <div class="stats-container">
-      <ul>
-        <li class="ff-cond"><button id="moon-btn">Moon</button></li>
-        <li class="ff-cond"><button id="mars-btn">Mars</button></li>
-        <li class="ff-cond active"><button id="europa-btn">Europa</button></li>
-        <li class="ff-cond"><button id="titan-btn">Titan</button></li>
-      </ul>
+    <div id="stats-container--europa" class="stats-container">
       <h1 class="ff-serif">Europa</h1>
       <p class="ff-sans">
         The smallest of the four Galilean moons orbiting Jupiter, Europa is a 
@@ -56,6 +59,78 @@
         <div class="stats">
           <span>Est. travel time</span>
           <span>3 years</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moon -->
+    <div id="moon-img" class="destination-img-wrapper active">
+      <img src="./assets/destination/image-moon.png" alt="Europa">
+    </div>
+    <div id="stats-container--moon" class="stats-container active">
+      <h1 class="ff-serif">Moon</h1>
+      <p class="ff-sans">
+        See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+        regain perspective and come back refreshed. While you’re there, take in some history 
+        by visiting the Luna 2 and Apollo 11 landing sites.
+      </p>
+      <div class="separator" style="--separator-clr: hsl(0 0% 100% / .2);"></div>
+      <div>
+        <div class="stats">
+          <span>Avg. distance</span>
+          <span>384,400 km</span>
+        </div>
+        <div class="stats">
+          <span>Est. travel time</span>
+          <span>3 days</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mars -->
+    <div id="mars-img" class="destination-img-wrapper">
+      <img src="./assets/destination/image-mars.png" alt="Europa">
+    </div>
+    <div id="stats-container--mars" class="stats-container">
+      <h1 class="ff-serif">Mars</h1>
+      <p class="ff-sans">
+        Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
+        the tallest planetary mountain in our solar system. It’s two and a half times 
+        the size of Everest!
+      </p>
+      <div class="separator" style="--separator-clr: hsl(0 0% 100% / .2);"></div>
+      <div>
+        <div class="stats">
+          <span>Avg. distance</span>
+          <span>225 mil. km</span>
+        </div>
+        <div class="stats">
+          <span>Est. travel time</span>
+          <span>9 months</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Titan -->
+    <div id="titan-img" class="destination-img-wrapper">
+      <img src="./assets/destination/image-titan.png" alt="Europa">
+    </div>
+    <div id="stats-container--titan" class="stats-container">
+      <h1 class="ff-serif">Titan</h1>
+      <p class="ff-sans">
+        The only moon known to have a dense atmosphere other than Earth, Titan 
+        is a home away from home (just a few hundred degrees colder!). As a 
+        bonus, you get striking views of the Rings of Saturn.
+      </p>
+      <div class="separator" style="--separator-clr: hsl(0 0% 100% / .2);"></div>
+      <div>
+        <div class="stats">
+          <span>Avg. distance</span>
+          <span>1.6 bil. km</span>
+        </div>
+        <div class="stats">
+          <span>Est. travel time</span>
+          <span>7 years</span>
         </div>
       </div>
     </div>
