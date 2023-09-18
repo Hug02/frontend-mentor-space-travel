@@ -25,6 +25,28 @@ Utility fonction
   gap: var(--gap-main, 0);
 }
 
+.ff-cond {
+  font-family: "Barlow Condensed";
+}
+
+.ff-serif {
+  font-family: "Bellefair";
+}
+
+.ff-sans {
+  font-family: "Barlow";
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--separator-clr, white);
+}
+
+/*
+TODO change name
+Le reste
+*/
 body {
   background-image: url("./assets/home/background-home-mobile.jpg");
   background-repeat: no-repeat;
@@ -215,6 +237,98 @@ body .main-container--home .explore-btn:hover::after {
   body .main-container--home .hero p {
     text-align: left;
     font-size: 1.1rem;
+  }
+  .body--destination {
+    background-image: url("./assets/destination/background-destination-desktop.jpg");
+  }
+  .body--destination .main-container--destination {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr repeat(2, minmax(0, 30rem)) 1fr;
+    align-items: start;
+  }
+  .body--destination .main-container--destination h2 {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 3rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 0.2em;
+    font-size: 1.7rem;
+  }
+  .body--destination .main-container--destination h2 strong {
+    font-weight: 700;
+    margin-right: 1.2em;
+    color: hsla(0, 0%, 100%, 0.25);
+  }
+  .body--destination .main-container--destination .moon-img-wrapper {
+    grid-row: 2;
+    grid-column: 2;
+    margin-top: 1.7rem;
+  }
+  .body--destination .main-container--destination .moon-img-wrapper img {
+    max-width: 90%;
+  }
+  .body--destination .main-container--destination .stats-container {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .body--destination .main-container--destination .stats-container ul {
+    display: flex;
+    list-style: none;
+  }
+  .body--destination .main-container--destination .stats-container ul li {
+    position: relative;
+    margin-right: 1.75em;
+    padding: 1em 0;
+  }
+  .body--destination .main-container--destination .stats-container ul li button {
+    font-size: 1.256rem;
+    text-transform: uppercase;
+    color: hsl(231, 77%, 90%);
+    letter-spacing: 0.125em;
+    font-family: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .body--destination .main-container--destination .stats-container ul li.active::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .body--destination .main-container--destination .stats-container h1 {
+    margin: 0.4em 0;
+    text-transform: uppercase;
+    font-size: 5.5rem;
+  }
+  .body--destination .main-container--destination .stats-container p {
+    font-size: 1.125rem;
+    line-height: 1.5em;
+    margin-bottom: 2.5rem;
+  }
+  .body--destination .main-container--destination .stats-container div:last-child {
+    display: flex;
+    justify-content: space-between;
+  }
+  .body--destination .main-container--destination .stats-container div:last-child .stats {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+  .body--destination .main-container--destination .stats-container div:last-child .stats span:first-child {
+    text-transform: uppercase;
+    color: hsl(231, 77%, 90%);
+  }
+  .body--destination .main-container--destination .stats-container div:last-child .stats span:last-child {
+    font-family: "Bellefair";
+    text-transform: uppercase;
+    font-size: 2em;
   }
 }
 
