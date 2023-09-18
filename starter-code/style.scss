@@ -4,10 +4,20 @@
 // Barlow: hero
 // Bellefair: SPACE and EXPLORE
 
+/*
+RESET
+*/
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 /*
@@ -33,6 +43,7 @@ body {
     font-family: 'Barlow';
     display: grid;
     grid-template-rows: auto 1fr;
+    overflow-x: hidden;
 
     header {
         display: flex;
@@ -55,20 +66,21 @@ body {
         }
 
         nav {
-            display: none;
             font-family: 'Barlow Condensed';
             font-size: 1.2em;
             text-transform: uppercase;
             letter-spacing: 3px;
             position: absolute;
             right: 0;
+            transform: translateX(100%);
             height: 100vh;
             width: 75%;
             backdrop-filter: blur(6px);
             background-color: rgba(255, 255, 255, .1);
             padding: 7rem 2rem;
+            transition: transform .5s ease-out;
             &.active {
-                display: block;
+                transform: translateX(0);
             }
             ul {
                 display: flex;
@@ -170,17 +182,28 @@ body {
 
         nav {
             display: block;
-            position: absolute;
             height: fit-content;
             width: fit-content;
-            padding: 1.8em 4.3em;
+            padding: 0 4.3em;
             order: 2;
             backdrop-filter: blur(1rem);
+            transform: translateX(0);
             ul {
                 flex-direction: row;
                 gap: 2.7em;
                 li {
+                    position: relative;
+                    padding: 1.8em 0;
                     font-size: 1.1rem;
+                    &.active::after {
+                        content: "";
+                        width: 100%;
+                        height: 4px;
+                        background-color: white;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                    }
                 }
             }
         }
