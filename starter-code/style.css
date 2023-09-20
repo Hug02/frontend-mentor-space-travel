@@ -19,7 +19,6 @@ Utility fonction
 .main-container {
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
   place-items: center;
   gap: var(--gap-main, 0);
 }
@@ -368,6 +367,90 @@ body .main-container--home .explore-btn:hover::after {
   padding: 0 1em;
 }
 
+.body--technology {
+  background-image: url("./assets/technology/background-technology-mobile.jpg");
+}
+.body--technology .main-container--technology {
+  grid-template-areas: "title" "image" "tabs" "article";
+  justify-items: center;
+}
+.body--technology .main-container--technology h2 {
+  grid-area: title;
+}
+.body--technology .main-container--technology ul {
+  grid-area: tabs;
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.body--technology .main-container--technology ul button {
+  width: 100%;
+  font-size: 1.256rem;
+  border: 1px hsla(0, 0%, 100%, 0.5) solid;
+  background-color: transparent;
+  color: white;
+  font-family: "Bellefair";
+  display: grid;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 1em;
+  line-height: 0;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color 0.09s ease-in;
+}
+.body--technology .main-container--technology ul button[aria-selected=true] {
+  background-color: white;
+  color: black;
+}
+.body--technology .main-container--technology ul button:hover {
+  background-color: white;
+  color: black;
+}
+.body--technology .main-container--technology article {
+  grid-area: article;
+  margin-top: 3rem;
+  padding: 1rem;
+  font-size: 1.125rem;
+  visibility: hidden;
+  text-align: center;
+}
+.body--technology .main-container--technology article.active {
+  visibility: visible;
+}
+.body--technology .main-container--technology article h3 {
+  color: hsl(231, 77%, 90%);
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.2em;
+}
+.body--technology .main-container--technology article h1 {
+  color: white;
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.body--technology .main-container--technology article p {
+  line-height: 1.75em;
+}
+.body--technology .main-container--technology .img-technology {
+  grid-area: image;
+  margin-top: 4rem;
+  max-width: 50%;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  visibility: hidden;
+}
+.body--technology .main-container--technology .img-technology.active {
+  visibility: visible;
+}
+.body--technology .main-container--technology .img-technology img {
+  max-width: 105%;
+}
+
 @media screen and (min-width: 540px) {
   body {
     background-image: url("./assets/home/background-home-tablet.jpg");
@@ -386,6 +469,9 @@ body .main-container--home .explore-btn:hover::after {
   }
 }
 @media screen and (min-width: 890px) {
+  .main-container {
+    grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
+  }
   body {
     background-image: url("./assets/home/background-home-desktop.jpg");
   }
@@ -535,81 +621,34 @@ body .main-container--home .explore-btn:hover::after {
   .body--technology {
     background-image: url("./assets/technology/background-technology-desktop.jpg");
   }
-  .main-container--technology {
+  .body--technology .main-container--technology {
     grid-template-areas: ". title title title ." ". tabs article image .";
     grid-template-columns: minmax(2.56rem, 1fr) 11rem repeat(2, minmax(15rem, 32rem)) minmax(2.56rem, 1fr);
     grid-template-rows: min-content 1fr;
-    justify-items: start;
-    align-items: start;
+    place-items: start;
   }
-  .main-container--technology h2 {
-    grid-area: title;
-  }
-  .main-container--technology ul {
-    grid-area: tabs;
+  .body--technology .main-container--technology ul {
     margin-top: 10rem;
-    display: flex;
     flex-direction: column;
     gap: 3rem;
-    list-style: none;
   }
-  .main-container--technology ul button {
-    width: 100%;
+  .body--technology .main-container--technology ul button {
     font-size: 2.5rem;
-    border: 1px hsla(0, 0%, 100%, 0.5) solid;
-    background-color: transparent;
-    color: white;
-    font-family: "Bellefair";
-    display: grid;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    padding: 1em;
-    line-height: 0;
-    place-items: center;
-    cursor: pointer;
-    transition: background-color 0.09s ease-in;
   }
-  .main-container--technology ul button[aria-selected=true] {
-    background-color: white;
-    color: black;
-  }
-  .main-container--technology ul button:hover {
-    background-color: white;
-    color: black;
-  }
-  .main-container--technology article {
-    grid-area: article;
+  .body--technology .main-container--technology article {
     margin-top: 10rem;
-    padding-right: 5em;
+    text-align: start;
     font-size: 1.125rem;
-    color: hsl(231, 77%, 90%);
-    visibility: hidden;
   }
-  .main-container--technology article.active {
-    visibility: visible;
-  }
-  .main-container--technology article h3 {
-    font-size: 1em;
-    font-weight: 400;
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.2em;
-  }
-  .main-container--technology article h1 {
-    color: white;
-    font-size: 3em;
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
-  .main-container--technology article p {
-    line-height: 1.75em;
-  }
-  .main-container--technology .img-technology {
-    grid-area: image;
-    margin-top: 5rem;
+  .body--technology .main-container--technology .img-technology {
     justify-self: end;
+    align-self: center;
     visibility: hidden;
+    border-radius: 0;
+    max-width: 100%;
+    margin-left: 3rem;
   }
-  .main-container--technology .img-technology.active {
+  .body--technology .main-container--technology .img-technology.active {
     visibility: visible;
   }
 }

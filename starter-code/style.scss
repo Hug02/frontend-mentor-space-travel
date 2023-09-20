@@ -27,7 +27,6 @@ Utility fonction
 .main-container {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
     place-items: center;
     gap: var(--gap-main, 0);
 }
@@ -415,6 +414,97 @@ body {
     }
 }
 
+.body--technology {
+    background-image: url("./assets/technology/background-technology-mobile.jpg");
+    .main-container--technology {
+        grid-template-areas: 
+                        "title"
+                        "image"
+                        "tabs"
+                        "article";
+        justify-items: center;
+        h2 {
+            grid-area: title;
+        }
+
+        ul {
+            grid-area: tabs;
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            button {
+                width: 100%;
+                font-size: 1.256rem;
+                border: 1px hsl(0 0% 100% / .5) solid;
+                background-color: transparent;
+                color: white;
+                font-family: "Bellefair";
+                display: grid;
+                border-radius: 50%;
+                aspect-ratio: 1;
+                padding: 1em;
+                line-height: 0;
+                place-items: center;
+                cursor: pointer;
+                transition: background-color .09s ease-in;
+                &[aria-selected="true"] {
+                    background-color: white;
+                    color: black;
+                }
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+
+        article {
+            grid-area: article;
+            margin-top: 3rem;
+            padding: 1rem;
+            font-size: 1.125rem;
+            visibility: hidden;
+            text-align: center;
+            &.active {
+                visibility: visible;
+            }
+            h3 {
+                color: hsl(231, 77%, 90%);
+                font-size: 1em;
+                font-weight: 400;
+                margin-bottom: .6rem;
+                letter-spacing: .2em;
+            }
+            h1 {
+                color: white;
+                font-size: 3em;
+                font-weight: 400;
+                margin-bottom: 1rem;
+            }
+            p {
+                line-height: 1.75em;
+            }
+        }
+
+        .img-technology {
+            grid-area: image;
+            margin-top: 4rem;
+            max-width: 50%;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            visibility: hidden;
+            &.active {
+                visibility: visible;
+            }
+            img {
+                max-width: 105%;
+            }
+        }
+    }
+}
+
 
 @media screen and (min-width: 540px) {
     body {
@@ -439,6 +529,9 @@ body {
 }
 
 @media screen and (min-width: 890px) {
+    .main-container {
+        grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
+    }
     body {
         background-image: url("./assets/home/background-home-desktop.jpg");
 
@@ -609,86 +702,40 @@ body {
 
     .body--technology {
         background-image: url("./assets/technology/background-technology-desktop.jpg");
-    }
-    .main-container--technology {
-        grid-template-areas: 
-                        ". title title title ."
-                        ". tabs article image .";
-        grid-template-columns: minmax(2.56rem, 1fr) 11rem  repeat(2, minmax(15rem, 32rem)) minmax(2.56rem, 1fr);
-        grid-template-rows: min-content 1fr;
-        justify-items: start;
-        align-items: start;
-        h2 {
-            grid-area: title;
-        }
+    
+        .main-container--technology {
+            grid-template-areas: 
+                            ". title title title ."
+                            ". tabs article image .";
+            grid-template-columns: minmax(2.56rem, 1fr) 11rem  repeat(2, minmax(15rem, 32rem)) minmax(2.56rem, 1fr);
+            grid-template-rows: min-content 1fr;
+            place-items: start;
 
-        ul {
-            grid-area: tabs;
-            margin-top: 10rem;
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            list-style: none;
-            button {
-                width: 100%;
-                font-size: 2.5rem;
-                border: 1px hsl(0 0% 100% / .5) solid;
-                background-color: transparent;
-                color: white;
-                font-family: "Bellefair";
-                display: grid;
-                border-radius: 50%;
-                aspect-ratio: 1;
-                padding: 1em;
-                line-height: 0;
-                place-items: center;
-                cursor: pointer;
-                transition: background-color .09s ease-in;
-                &[aria-selected="true"] {
-                    background-color: white;
-                    color: black;
-                }
-                &:hover {
-                    background-color: white;
-                    color: black;
+            ul {
+                margin-top: 10rem;
+                flex-direction: column;
+                gap: 3rem;
+                button {
+                    font-size: 2.5rem;
                 }
             }
-        }
 
-        article {
-            grid-area: article;
-            margin-top: 10rem;
-            padding-right: 5em;
-            font-size: 1.125rem;
-            color: hsl(231, 77%, 90%);
-            visibility: hidden;
-            &.active {
-                visibility: visible;
+            article {
+                margin-top: 10rem;
+                text-align: start;
+                font-size: 1.125rem;
             }
-            h3 {
-                font-size: 1em;
-                font-weight: 400;
-                margin-bottom: .6rem;
-                letter-spacing: .2em;
-            }
-            h1 {
-                color: white;
-                font-size: 3em;
-                font-weight: 400;
-                margin-bottom: 1rem;
-            }
-            p {
-                line-height: 1.75em;
-            }
-        }
 
-        .img-technology {
-            grid-area: image;
-            margin-top: 5rem;
-            justify-self: end;
-            visibility: hidden;
-            &.active {
-                visibility: visible;
+            .img-technology {
+                justify-self: end;
+                align-self: center;
+                visibility: hidden;
+                border-radius: 0;
+                max-width: 100%;
+                margin-left: 3rem;
+                &.active {
+                    visibility: visible;
+                }
             }
         }
     }
