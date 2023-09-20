@@ -37,6 +37,10 @@ Utility fonction
   font-family: "Barlow";
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .separator {
   width: 100%;
   height: 1px;
@@ -384,6 +388,81 @@ body .main-container--home .explore-btn:hover::after {
   }
   .body--destination .main-container--destination .stats-container h1 {
     margin: 0.4em 0;
+  }
+  .body--crew {
+    background-image: url("./assets/crew/background-crew-desktop.jpg");
+  }
+  .body--crew .main-container--crew {
+    grid-template-areas: ". title . ." ". article image ." ". nav image .";
+    grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
+    grid-template-rows: min-content minmax(20rem, 1fr) min-content;
+    justify-items: start;
+  }
+  .body--crew .main-container--crew h2 {
+    grid-area: title;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 0.2em;
+    font-size: 1.7rem;
+  }
+  .body--crew .main-container--crew h2 strong {
+    font-weight: 700;
+    margin-right: 0.7em;
+    color: hsla(0, 0%, 100%, 0.25);
+  }
+  .body--crew .main-container--crew article {
+    grid-area: article;
+    align-self: center;
+    margin-top: 1rem;
+    visibility: hidden;
+  }
+  .body--crew .main-container--crew article.active {
+    visibility: visible;
+  }
+  .body--crew .main-container--crew article h3 {
+    color: hsla(0, 0%, 100%, 0.5);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.9rem;
+  }
+  .body--crew .main-container--crew article h1 {
+    font-size: 3.7rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  .body--crew .main-container--crew article p {
+    font-size: 1.125rem;
+    line-height: 1.6rem;
+  }
+  .body--crew .main-container--crew .crew-image {
+    grid-area: image;
+    align-self: end;
+    display: flex;
+    visibility: hidden;
+  }
+  .body--crew .main-container--crew .crew-image.active {
+    visibility: visible;
+  }
+  .body--crew .main-container--crew .crew-image img {
+    max-width: 90%;
+  }
+  .body--crew .main-container--crew ul {
+    grid-area: nav;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3.256rem;
+  }
+  .body--crew .main-container--crew ul button {
+    background-color: hsla(0, 0%, 100%, 0.25);
+    width: 1.256rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+  .body--crew .main-container--crew ul button[aria-selected=true] {
+    background-color: white;
   }
 }
 
