@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@300&family=Bellefair&display=swap');
 
-// Barlow Condensed: nav
-// Barlow: hero
-// Bellefair: SPACE and EXPLORE
-
 /*
 RESET
 */
-
 
 * {
     padding: 0;
@@ -19,6 +14,7 @@ a {
     color: white;
     text-decoration: none;
 }
+
 
 /*
 Utility fonction
@@ -35,8 +31,6 @@ Utility fonction
     font-family: 'Barlow Condensed';
 }
 
-
-// TODO: Serif means with small lines atteched to letter
 .ff-serif {
     font-family: 'Bellefair';
 }
@@ -47,12 +41,6 @@ Utility fonction
 
 .uppercase {
     text-transform: uppercase;
-}
-
-.separator {
-    width: 100%;
-    height: 1px;
-    background-color: var(--separator-clr, white);
 }
 
 /*
@@ -78,75 +66,82 @@ Composant ?
     }
 }
 
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--separator-clr, white);
+}
+
 /*
-TODO change name
-Le reste
+Specific Layout
 */
 
 body {
-    background-image: url("./assets/home/background-home-mobile.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom center;
     min-height: 100vh;
-    color: white;
-    font-family: 'Barlow';
     display: grid;
     grid-template-rows: auto 1fr;
     overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    color: white;
+    font-family: 'Barlow';
+}
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        
-        .logo-wrapper {
-            margin-top: 25px;
-            margin-left: 25px;
+header {
+    display: flex;
+    justify-content: space-between;
+    .logo-wrapper {
+        margin-top: 25px;
+        margin-left: 25px;
+    }
+    button {
+        background-color: rgba(255, 255, 255, 0);
+        border: 0px;
+        margin-top: 25px;
+        margin-right: 25px;
+        z-index: 2;
+
+        img.hidden {
+            display: none;
         }
-        button {
-            background-color: rgba(255, 255, 255, 0);
-            border: 0px;
-            margin-top: 25px;
-            margin-right: 25px;
-            z-index: 2;
+    }
 
-            img.hidden {
-                display: none;
-            }
+    nav {
+        font-family: 'Barlow Condensed';
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: fixed;
+        z-index: 1;
+        right: 0;
+        transform: translateX(100%);
+        height: 100vh;
+        width: 75%;
+        backdrop-filter: blur(6px);
+        background-color: rgba(255, 255, 255, .1);
+        padding: 7rem 2rem;
+        transition: transform .5s ease-out;
+        &.active {
+            transform: translateX(0);
         }
-
-        nav {
-            font-family: 'Barlow Condensed';
-            font-size: 1.2em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            position: fixed;
-            z-index: 1;
-            right: 0;
-            transform: translateX(100%);
-            height: 100vh;
-            width: 75%;
-            backdrop-filter: blur(6px);
-            background-color: rgba(255, 255, 255, .1);
-            padding: 7rem 2rem;
-            transition: transform .5s ease-out;
-            &.active {
-                transform: translateX(0);
-            }
-            ul {
-                display: flex;
-                flex-direction: column;
-                gap: 2.4rem;
-                li {
-                    list-style: none;
-                    strong {
-                        margin-right: .5rem;
-                    }
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            li {
+                list-style: none;
+                strong {
+                    margin-right: .5rem;
                 }
             }
         }
     }
+}
 
+.body--home {
+    background-image: url("./assets/home/background-home-mobile.jpg");
+    
     .main-container--home {
         padding-bottom: 2rem;
         .hero {
@@ -360,7 +355,6 @@ body {
                 border-radius: 50%;
                 border: none;
                 cursor: pointer;
-                // TODO: retenir ca
                 &[aria-selected="true"] {
                     background-color: white;
                 }
@@ -515,9 +509,6 @@ body {
     .main-container {
         grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
     }
-    body {
-        background-image: url("./assets/home/background-home-desktop.jpg");
-
 
     header {
         align-items: center;
@@ -565,6 +556,9 @@ body {
             width: 100%;
         }
     }
+    
+    .body--home {
+        background-image: url("./assets/home/background-home-desktop.jpg");
 
         .main-container--home {
             grid-template-rows: auto;

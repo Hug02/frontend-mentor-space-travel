@@ -55,6 +55,8 @@ Users should be able to:
 font-size: clamp(5rem, 7vw + 1rem, 9rem);
 ```
 
+- a serif font, means that letters have little lines attached to them
+
 
 ### Useful resources
 

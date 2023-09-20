@@ -39,12 +39,6 @@ Utility fonction
   text-transform: uppercase;
 }
 
-.separator {
-  width: 100%;
-  height: 1px;
-  background-color: var(--separator-clr, white);
-}
-
 /*
 Composant ?
 */
@@ -66,41 +60,46 @@ Composant ?
     font-size: 1.7rem;
   }
 }
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--separator-clr, white);
+}
+
 /*
-TODO change name
-Le reste
+Specific Layout
 */
 body {
-  background-image: url("./assets/home/background-home-mobile.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom center;
   min-height: 100vh;
-  color: white;
-  font-family: "Barlow";
   display: grid;
   grid-template-rows: auto 1fr;
   overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  color: white;
+  font-family: "Barlow";
 }
-body header {
+
+header {
   display: flex;
   justify-content: space-between;
 }
-body header .logo-wrapper {
+header .logo-wrapper {
   margin-top: 25px;
   margin-left: 25px;
 }
-body header button {
+header button {
   background-color: rgba(255, 255, 255, 0);
   border: 0px;
   margin-top: 25px;
   margin-right: 25px;
   z-index: 2;
 }
-body header button img.hidden {
+header button img.hidden {
   display: none;
 }
-body header nav {
+header nav {
   font-family: "Barlow Condensed";
   font-size: 1.2em;
   text-transform: uppercase;
@@ -116,24 +115,28 @@ body header nav {
   padding: 7rem 2rem;
   transition: transform 0.5s ease-out;
 }
-body header nav.active {
+header nav.active {
   transform: translateX(0);
 }
-body header nav ul {
+header nav ul {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
 }
-body header nav ul li {
+header nav ul li {
   list-style: none;
 }
-body header nav ul li strong {
+header nav ul li strong {
   margin-right: 0.5rem;
 }
-body .main-container--home {
+
+.body--home {
+  background-image: url("./assets/home/background-home-mobile.jpg");
+}
+.body--home .main-container--home {
   padding-bottom: 2rem;
 }
-body .main-container--home .hero h1 {
+.body--home .main-container--home .hero h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,20 +147,20 @@ body .main-container--home .hero h1 {
   font-size: 1em;
   letter-spacing: 4px;
 }
-body .main-container--home .hero h1 strong {
+.body--home .main-container--home .hero h1 strong {
   font-family: "Bellefair";
   color: hsl(0, 0%, 100%);
   font-size: 5em;
   font-weight: 400;
 }
-body .main-container--home .hero p {
+.body--home .main-container--home .hero p {
   max-width: 390px;
   text-align: center;
   font-size: 1em;
   margin: auto;
   line-height: 1.4em;
 }
-body .main-container--home .explore-btn {
+.body--home .main-container--home .explore-btn {
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Bellefair";
@@ -171,7 +174,7 @@ body .main-container--home .explore-btn {
   align-content: center;
   position: relative;
 }
-body .main-container--home .explore-btn::after {
+.body--home .main-container--home .explore-btn::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -182,7 +185,7 @@ body .main-container--home .explore-btn::after {
   opacity: 0;
   transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
 }
-body .main-container--home .explore-btn:hover::after {
+.body--home .main-container--home .explore-btn:hover::after {
   transform: scale(1.4);
   opacity: 1;
 }
@@ -455,21 +458,18 @@ body .main-container--home .explore-btn:hover::after {
   .main-container {
     grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
   }
-  body {
-    background-image: url("./assets/home/background-home-desktop.jpg");
-  }
-  body header {
+  header {
     align-items: center;
     padding: 3rem 0 0 3rem;
   }
-  body header .logo-wrapper {
+  header .logo-wrapper {
     margin: 0;
     margin-right: 1.2rem;
   }
-  body header button {
+  header button {
     display: none;
   }
-  body header nav {
+  header nav {
     display: block;
     height: fit-content;
     width: fit-content;
@@ -478,16 +478,16 @@ body .main-container--home .explore-btn:hover::after {
     backdrop-filter: blur(1rem);
     transform: translateX(0);
   }
-  body header nav ul {
+  header nav ul {
     flex-direction: row;
     gap: 2.7em;
   }
-  body header nav ul li {
+  header nav ul li {
     position: relative;
     padding: 1.8em 0;
     font-size: 1.1rem;
   }
-  body header nav ul li.active::after {
+  header nav ul li.active::after {
     content: "";
     width: 100%;
     height: 4px;
@@ -496,31 +496,34 @@ body .main-container--home .explore-btn:hover::after {
     left: 0;
     bottom: 0;
   }
-  body header::after {
+  header::after {
     content: "";
     order: 1;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.3);
     width: 100%;
   }
-  body .main-container--home {
+  .body--home {
+    background-image: url("./assets/home/background-home-desktop.jpg");
+  }
+  .body--home .main-container--home {
     grid-template-rows: auto;
     --gap-main: 2rem;
     place-items: center;
     align-items: end;
     padding-bottom: 20vh;
   }
-  body .main-container--home .hero {
+  .body--home .main-container--home .hero {
     grid-column: 2;
   }
-  body .main-container--home .hero h1 {
+  .body--home .main-container--home .hero h1 {
     align-items: flex-start;
     font-size: 1.8rem;
   }
-  body .main-container--home .hero h1 strong {
+  .body--home .main-container--home .hero h1 strong {
     font-size: clamp(5rem, 7vw + 1rem, 9rem);
   }
-  body .main-container--home .hero p {
+  .body--home .main-container--home .hero p {
     text-align: left;
     font-size: 1.1rem;
   }
