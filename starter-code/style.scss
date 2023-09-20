@@ -26,9 +26,8 @@ Utility fonction
 
 .main-container {
     margin-top: 3rem;
-    padding: 0 10px;
     display: grid;
-    grid-template-rows: .5fr .5fr;
+    grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
     place-items: center;
     gap: var(--gap-main, 0);
 }
@@ -55,6 +54,22 @@ Utility fonction
     width: 100%;
     height: 1px;
     background-color: var(--separator-clr, white);
+}
+
+/*
+Composant ?
+*/
+
+.numbered-title {
+    font-family: "Barlow Condensed";
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .256em;
+    span {
+        font-weight: 700;
+        color:hsla(0, 0%, 100%, 0.256);
+        margin-right: .75em;
+    }
 }
 
 /*
@@ -312,7 +327,6 @@ body {
                     "image"
                     "nav"
                     "article";
-        // grid-template-rows: min-content minmax(20rem, 1fr) min-content;
         justify-items: center;
 
         h2 {
@@ -478,7 +492,6 @@ body {
 
         .main-container--home {
             grid-template-rows: auto;
-            grid-template-columns: 1fr minmax(0, 25rem) minmax(0, 25rem) 1fr;
             --gap-main: 2rem;
             place-items: center;
             align-items: end;
@@ -505,8 +518,7 @@ body {
         background-image: url("./assets/destination/background-destination-desktop.jpg");
 
         .main-container--destination {
-            grid-template-rows: auto auto 1fr;
-            grid-template-columns: 1fr repeat(2, minmax(0, 30rem)) 1fr;
+            grid-template-rows: min-content auto 1fr;
             align-items: start;
 
             h2 {
@@ -516,7 +528,7 @@ body {
                 grid-row: 1;
                 grid-column: 2;
                 justify-self: start;
-                margin-top: 3rem;
+                // margin-top: 3rem;
             }
 
             .nav-destinations {
@@ -555,7 +567,6 @@ body {
                         ". title . ."
                         ". article image ."
                         ". nav image .";
-            grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
             grid-template-rows: min-content minmax(20rem, 1fr) min-content;
             justify-items: start;
 
@@ -592,6 +603,92 @@ body {
                 button {
                     width: 1.256rem;
                 }
+            }
+        }
+    }
+
+    .body--technology {
+        background-image: url("./assets/technology/background-technology-desktop.jpg");
+    }
+    .main-container--technology {
+        grid-template-areas: 
+                        ". title title title ."
+                        ". tabs article image .";
+        grid-template-columns: minmax(2.56rem, 1fr) 11rem  repeat(2, minmax(15rem, 32rem)) minmax(2.56rem, 1fr);
+        grid-template-rows: min-content 1fr;
+        justify-items: start;
+        align-items: start;
+        h2 {
+            grid-area: title;
+        }
+
+        ul {
+            grid-area: tabs;
+            margin-top: 10rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            list-style: none;
+            button {
+                width: 100%;
+                font-size: 2.5rem;
+                border: 1px hsl(0 0% 100% / .5) solid;
+                background-color: transparent;
+                color: white;
+                font-family: "Bellefair";
+                display: grid;
+                border-radius: 50%;
+                aspect-ratio: 1;
+                padding: 1em;
+                line-height: 0;
+                place-items: center;
+                cursor: pointer;
+                transition: background-color .09s ease-in;
+                &[aria-selected="true"] {
+                    background-color: white;
+                    color: black;
+                }
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+
+        article {
+            grid-area: article;
+            margin-top: 10rem;
+            padding-right: 5em;
+            font-size: 1.125rem;
+            color: hsl(231, 77%, 90%);
+            visibility: hidden;
+            &.active {
+                visibility: visible;
+            }
+            h3 {
+                font-size: 1em;
+                font-weight: 400;
+                margin-bottom: .6rem;
+                letter-spacing: .2em;
+            }
+            h1 {
+                color: white;
+                font-size: 3em;
+                font-weight: 400;
+                margin-bottom: 1rem;
+            }
+            p {
+                line-height: 1.75em;
+            }
+        }
+
+        .img-technology {
+            grid-area: image;
+            margin-top: 5rem;
+            justify-self: end;
+            visibility: hidden;
+            &.active {
+                visibility: visible;
             }
         }
     }

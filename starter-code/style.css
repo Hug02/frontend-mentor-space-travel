@@ -18,9 +18,8 @@ Utility fonction
 */
 .main-container {
   margin-top: 3rem;
-  padding: 0 10px;
   display: grid;
-  grid-template-rows: 0.5fr 0.5fr;
+  grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
   place-items: center;
   gap: var(--gap-main, 0);
 }
@@ -45,6 +44,21 @@ Utility fonction
   width: 100%;
   height: 1px;
   background-color: var(--separator-clr, white);
+}
+
+/*
+Composant ?
+*/
+.numbered-title {
+  font-family: "Barlow Condensed";
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.256em;
+}
+.numbered-title span {
+  font-weight: 700;
+  color: hsla(0, 0%, 100%, 0.256);
+  margin-right: 0.75em;
 }
 
 /*
@@ -422,7 +436,6 @@ body .main-container--home .explore-btn:hover::after {
   }
   body .main-container--home {
     grid-template-rows: auto;
-    grid-template-columns: 1fr minmax(0, 25rem) minmax(0, 25rem) 1fr;
     --gap-main: 2rem;
     place-items: center;
     align-items: end;
@@ -446,15 +459,13 @@ body .main-container--home .explore-btn:hover::after {
     background-image: url("./assets/destination/background-destination-desktop.jpg");
   }
   .body--destination .main-container--destination {
-    grid-template-rows: auto auto 1fr;
-    grid-template-columns: 1fr repeat(2, minmax(0, 30rem)) 1fr;
+    grid-template-rows: min-content auto 1fr;
     align-items: start;
   }
   .body--destination .main-container--destination h2 {
     grid-row: 1;
     grid-column: 2;
     justify-self: start;
-    margin-top: 3rem;
   }
   .body--destination .main-container--destination h2 strong {
     margin-right: 1.2em;
@@ -487,7 +498,6 @@ body .main-container--home .explore-btn:hover::after {
   }
   .body--crew .main-container--crew {
     grid-template-areas: ". title . ." ". article image ." ". nav image .";
-    grid-template-columns: minmax(2.56rem, 1fr) repeat(2, minmax(0, 32rem)) minmax(2.56rem, 1fr);
     grid-template-rows: min-content minmax(20rem, 1fr) min-content;
     justify-items: start;
   }
@@ -521,6 +531,86 @@ body .main-container--home .explore-btn:hover::after {
   }
   .body--crew .main-container--crew ul button {
     width: 1.256rem;
+  }
+  .body--technology {
+    background-image: url("./assets/technology/background-technology-desktop.jpg");
+  }
+  .main-container--technology {
+    grid-template-areas: ". title title title ." ". tabs article image .";
+    grid-template-columns: minmax(2.56rem, 1fr) 11rem repeat(2, minmax(15rem, 32rem)) minmax(2.56rem, 1fr);
+    grid-template-rows: min-content 1fr;
+    justify-items: start;
+    align-items: start;
+  }
+  .main-container--technology h2 {
+    grid-area: title;
+  }
+  .main-container--technology ul {
+    grid-area: tabs;
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    list-style: none;
+  }
+  .main-container--technology ul button {
+    width: 100%;
+    font-size: 2.5rem;
+    border: 1px hsla(0, 0%, 100%, 0.5) solid;
+    background-color: transparent;
+    color: white;
+    font-family: "Bellefair";
+    display: grid;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: 1em;
+    line-height: 0;
+    place-items: center;
+    cursor: pointer;
+    transition: background-color 0.09s ease-in;
+  }
+  .main-container--technology ul button[aria-selected=true] {
+    background-color: white;
+    color: black;
+  }
+  .main-container--technology ul button:hover {
+    background-color: white;
+    color: black;
+  }
+  .main-container--technology article {
+    grid-area: article;
+    margin-top: 10rem;
+    padding-right: 5em;
+    font-size: 1.125rem;
+    color: hsl(231, 77%, 90%);
+    visibility: hidden;
+  }
+  .main-container--technology article.active {
+    visibility: visible;
+  }
+  .main-container--technology article h3 {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.2em;
+  }
+  .main-container--technology article h1 {
+    color: white;
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .main-container--technology article p {
+    line-height: 1.75em;
+  }
+  .main-container--technology .img-technology {
+    grid-area: image;
+    margin-top: 5rem;
+    justify-self: end;
+    visibility: hidden;
+  }
+  .main-container--technology .img-technology.active {
+    visibility: visible;
   }
 }
 

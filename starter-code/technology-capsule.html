@@ -5,28 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.ico">
-  
+  <link rel="stylesheet" href="style.css">
+  <script src="./nav.js" defer></script>
+  <script src="./tab.js" defer></script>
   <title>Frontend Mentor | Space tourism website</title>
 </head>
-<body>
+<body class="body--technology">
+  <header>
+    <div class="logo-wrapper">
+      <img src="./assets/shared/logo.svg" alt="logo">
+    </div>
+    <button id="nav-btn" data-isOpen="false">
+      <img id="open-icon" src="./assets/shared/icon-hamburger.svg" alt="open-nav">
+      <img id="close-icon" class="hidden" src="./assets/shared/icon-close.svg" alt="close-nav">
+    </button>
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="./index.html"><strong>00</strong> Home</a></li>
+        <li><a href="./destinations.html"><strong>01</strong> Destination</a></li>
+        <li><a href="./crews.html"><strong>02</strong> Crew</a></li>
+        <li class="active"><a href="./technology-capsule.html"><strong>03</strong> Technology</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+  <main class="main-container main-container--technology">
+    <h2 class="numbered-title">
+      <span>03</span> Space launch 101
+    </h2>
+    <ul role="tablist">
+      <li><button aria-selected="true" role="tab" tabindex="0" aria-controls="vehicle">1</button></li>
+      <li><button aria-selected="false" role="tab" tabindex="-1" aria-controls="spaceport">2</button></li>
+      <li><button aria-selected="false" role="tab" tabindex="-1" aria-controls="capsule">3</button></li>
+    </ul>
 
-  03 Space launch 101
+    <!-- Vehicle -->
+    <article id="vehicle" data-image="vehicle-image" class="active">
+      <h3 class="uppercase ff-cond">The terminology</h3>
+      <h1 class="uppercase ff-serif">Launch vehicle</h1>
+      <p>
+        A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
+        payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
+        WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
+        it's quite an awe-inspiring sight on the launch pad!
+      </p>
+    </article>
+    <div id="vehicle-image" class="img-technology active">
+      <img src="./assets/technology/image-launch-vehicle-portrait.jpg" alt="">
+    </div>
 
-  1
-  2
-  3
 
-  The terminology...
-  Space capsule
+    <!-- Spaceport -->
+    <article id="spaceport" data-image="spaceport-image">
+      <h3 class="uppercase ff-cond">The terminology</h3>
+      <h1 class="uppercase ff-serif">Spaceport</h1>
+      <p>
+        A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
+        by analogy to the seaport for ships or airport for aircraft. Based in the 
+        famous Cape Canaveral, our spaceport is ideally situated to take advantage 
+        of the Earth’s rotation for launch.
+      </p>
+    </article>
+    <div id="spaceport-image" class="img-technology">
+      <img src="./assets/technology/image-spaceport-portrait.jpg" alt="">
+    </div>
 
-  A space capsule is an often-crewed spacecraft that uses a blunt-body reentry 
-  capsule to reenter the Earth's atmosphere without wings. Our capsule is where 
-  you'll spend your time during the flight. It includes a space gym, cinema, 
-  and plenty of other activities to keep you entertained.
+
+    <!-- Space Capsule -->
+    <article id="capsule" data-image="capsule-image">
+      <h3 class="uppercase ff-cond">The terminology</h3>
+      <h1 class="uppercase ff-serif">Space Capsule</h1>
+      <p>
+        A space capsule is an often-crewed spacecraft that uses a blunt-body reentry 
+        capsule to reenter the Earth's atmosphere without wings. Our capsule is where 
+        you'll spend your time during the flight. It includes a space gym, cinema, 
+        and plenty of other activities to keep you entertained.
+      </p>
+    </article>
+    <div id="capsule-image" class="img-technology">
+      <img src="./assets/technology/image-space-capsule-portrait.jpg" alt="">
+    </div>
+  </main>
 </body>
 </html>

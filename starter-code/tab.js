@@ -17,7 +17,7 @@ tabs.forEach((tab) => {
 function changeTab(current, newOne) {
     const currentArticle = document.getElementById(current);
     const newArticle = document.getElementById(newOne);
-
+    console.log(current, newOne)
     // hide currentArticle and image
     currentArticle.classList.remove("active");
     document.getElementById(currentArticle.dataset.image)
